@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Course</title>
+    <link rel="icon" href="logo_cut.png">
+
+    <meta name="description" content="Making learning a playful experience is always a high priority.">
+    <meta name="keywords" content="Hyderabad, Arts, Academy, Hyd, Arts Academy,Course page">
+    <meta name="author" content="We thinc solutions">
+    <meta name="author" content="Ravula Pranay Kumar Reddy">
+    <meta name="author" content="Bokka Varun Reddy">
+    <meta name="author" content="Bokka Nirvan Reddy">
+
+
+    <style>
+        body {
+            overflow-x: hidden;
+            font-family: calibri;
+        }
+        
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        nav {
+            background-image: linear-gradient(rgb(255, 255, 255), rgba(230, 230, 230, 0.8));
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            z-index: 101;
+            font-family: calibri;
+        }
+        
+        .topnav {
+            padding: 0px 18px;
+            background-color: transparent;
+            overflow: hidden;
+            height: 9vh;
+            width: 100vw;
+            color: #000;
+        }
+        
+        .topnav .tlink {
+            float: right;
+            display: block;
+            color: inherit;
+            text-align: center;
+            padding: 1vh 3vh 1vh 0px;
+            text-decoration: none;
+            font-size: 5vh;
+        }
+        
+        .navlogobar {
+            float: left;
+            display: block;
+            text-align: center;
+        }
+        
+        .navlogo {
+            padding: 1vh 1vh;
+            height: 9vh;
+        }
+        
+        .topnav .icon {
+            color: inherit;
+            float: right;
+            display: none;
+            font-size: 6vh;
+            padding: 2vh;
+        }
+        
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: inherit;
+        }
+        
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            padding-top: 1vh;
+            transition: 0.5s;
+        }
+        
+        .overlay-content {
+            padding-top: 50px;
+            position: relative;
+            top: 10vh;
+            width: 100%;
+            padding-left: 7.5%;
+        }
+        
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 4vh;
+            color: #e0e0e0;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .overlay a:hover {
+            color: #fff;
+        }
+        
+        .overlay .closebtn {
+            margin: 9px;
+            position: absolute;
+            top: 3vh;
+            right: 3vh;
+            font-size: 50px;
+            line-height: 50px;
+        }
+        
+        #artnav {
+            margin: 0px;
+            display: none;
+            padding-left: 25px;
+        }
+        
+        @media screen and (orientation: portrait) {
+            .topnav {
+                padding: 0px 12px;
+                height: 7.5vh;
+            }
+            .topnav .tlink {
+                padding: 1.25vh 1.5vh;
+                font-size: 4.5vh;
+            }
+            .navlogo {
+                padding: 1vh 1vh;
+                height: 7vh;
+            }
+            .topnav .icon {
+                font-size: 4vh;
+                padding: 1.5vh;
+            }
+            .overlay {
+                padding-top: 1vh;
+                transition: 0.5s;
+            }
+            .overlay-content {
+                position: relative;
+                top: 12vh;
+                width: 100%;
+                padding-left: 7.5%;
+            }
+            .overlay a {
+                text-decoration: none;
+                font-size: 4vh;
+                color: #e0e0e0;
+                display: block;
+                transition: 0.3s;
+            }
+            .overlay a:hover {
+                color: #fff;
+            }
+            .overlay .closebtn {
+                position: absolute;
+                top: 6vh;
+                right: 3vh;
+                font-size: 50px;
+                line-height: 50px;
+            }
+            #artnav {
+                margin: 0px;
+                display: none;
+                padding-left: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 900px),
+        (orientation: portrait) {
+            .topnav {
+                padding: 0px 8px;
+            }
+            .topnav a:not(:first-child) {
+                display: none;
+            }
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+        }
+        
+        main {
+            padding-top: 9vh;
+        }
+        
+        @media screen and (orientation: portrait) {
+            main {
+                padding-top: 7.5vh;
+            }
+        }
+        
+        #slideshow-container {
+            max-width: 100vw;
+            height: 56.25vw;
+            position: relative;
+            margin: auto;
+            transition: background-image 0.6s;
+            background-image: url('images/1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-origin: border-box;
+            background-position: center center;
+        }
+        
+        #bgload2 {
+            width: 100vw;
+            height: 0px;
+            background-image: url('images/2.jpg');
+        }
+        
+        #bgload3 {
+            width: 100vw;
+            height: 0px;
+            background-image: url('images/3.jpg');
+        }
+        
+        #bgload4 {
+            width: 100vw;
+            height: 0px;
+            background-image: url('images/4.jpg');
+        }
+        
+        #bgload5 {
+            width: 100vw;
+            height: 0px;
+            background-image: url('images/5.jpg');
+        }
+        
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .centext {
+            text-align: center;
+        }
+        
+        .titsho {
+            font-size: 8vh;
+        }
+        
+        .artshow {
+            width: 100vw;
+            height: auto;
+            display: flex;
+            padding: 0 5vw;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+        
+        .card {
+            width: 300px;
+            height: 400px;
+            margin: 20px;
+            padding: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .attex {
+            padding-top: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .ishad {
+            box-shadow: 0px 0px 10px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .ishad:hover {
+            box-shadow: 0px 0px 12px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .porimg {
+            height: 75%
+        }
+        
+        .lanimg {
+            width: 100%
+        }
+        
+        .seemore {
+            padding: 5%;
+            text-decoration: none;
+            font-size: 5vh;
+        }
+        
+        .brat {
+            width: 100vw;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(255, 255, 255);
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: center;
+            flex-direction: row;
+        }
+        
+        .prbox {
+            margin: 4vh 0px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            padding: 20px 10px;
+            display: flex;
+            text-align: center;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+            flex-direction: column;
+            width: 350px;
+            height: 450px;
+            border-radius: 25px;
+            box-shadow: 3px 3px 3px 3px rgba(19, 17, 18, 0.692);
+        }
+        
+        .ofratit {
+            color: rgb(0, 128, 128);
+            margin: 0px 0px 10px 0px;
+        }
+        
+        .ofrab {
+            background-image: linear-gradient(rgb(255, 255, 255), rgb(34, 143, 143));
+        }
+        
+        .ofnmat {
+            font-size: 1.5em;
+            padding: 10px 15px;
+            text-align: left;
+        }
+        
+        .ofnrta {
+            color: #fff;
+        }
+        
+        .oflin {
+            background-color: rgb(0, 128, 128, );
+            width: 275px;
+            height: 3px;
+        }
+        
+        .tepad {
+            padding: 0.25em 0px;
+        }
+        
+        .onrab {
+            background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 105, 55));
+        }
+        
+        .onratit {
+            color: rgb(230, 90, 0);
+            margin: 0px 0px 10px 0px;
+        }
+        
+        .onlin {
+            background-color: rgb(0, 128, 128, );
+            width: 275px;
+            height: 3px;
+        }
+        
+        .button {
+            background-color: transparent;
+            color: white;
+            border: 0.5vh solid white;
+            font-size: 1.8em;
+            text-align: center;
+            padding: 0.25em 0.5em;
+            text-decoration: none;
+            border-radius: 1.2em;
+            display: inline-block;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #fff;
+            color: black;
+        }
+        
+        .hii {
+            height: auto;
+            overflow-x: scroll;
+            overflow-y: none;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .ard {
+            flex-shrink: 0;
+            width: 225px;
+            height: 300px;
+            margin: 25px;
+            padding: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: flex-end;
+            flex-direction: column;
+            box-shadow: 0px 0px 10px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+        }
+        
+        .ll10 {
+            margin-left: 20px;
+        }
+        
+        .af1 {
+            flex-shrink: 0;
+            width: 160px;
+            height: 300px;
+            margin: 20px;
+            padding: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            align-content: flex-start;
+        }
+        
+        .kporimg {
+            height: 70%;
+        }
+        
+        .klanimg {
+            width: 90%;
+        }
+        
+        @media screen and (max-width: 375px) {
+            .prbox {
+                justify-content: space-around;
+                align-items: center;
+                align-content: flex-start;
+                flex-direction: column;
+                width: 200px;
+                height: auto;
+                border-radius: 25px;
+                box-shadow: 3px 3px 3px 3px rgba(19, 17, 18, 0.692);
+            }
+            .ofratit {
+                font-size: 0.85em;
+            }
+            .ofnmat {
+                font-size: 0.75em;
+                padding: 5px 9px;
+            }
+            .ofnrta {
+                color: #fff;
+                font-size: 0.85em;
+            }
+            .oflin {
+                width: 150px;
+            }
+            .tepad {
+                padding: 0.15em 0px;
+            }
+            .onratit {
+                font-size: 0.85em;
+            }
+            .onlin {
+                width: 150px;
+            }
+            .button {
+                font-size: 0.8em;
+                padding: 0.125em 0.25em;
+                border-radius: 0.6em;
+            }
+        }
+        
+        @media screen and (max-width: 220px) {
+            .prbox {
+                width: 150px;
+            }
+        }
+        
+        @media screen and (max-width:400px) {
+            .card {
+                width: 66vw;
+                height: 88vw;
+            }
+            .ishad {
+                box-shadow: 0px 0px 6px 8px rgba(0, 0, 0, 0.2);
+            }
+            .attex {
+                padding-top: 12px;
+            }
+        }
+        
+        @media screen and (max-height:400px) {
+            .card {
+                width: 66vh;
+                height: 88vh;
+            }
+            .ishad {
+                box-shadow: 0px 0px 6px 8px rgba(0, 0, 0, 0.2);
+            }
+            .attex {
+                padding-top: 12px;
+            }
+        }
+        
+        .cont {
+            width: 100vw;
+            height: auto;
+            padding: 2vh 4vw;
+            background-color: black;
+        }
+        
+        .cotit {
+            font-size: 3em;
+            text-align: center;
+            color: white;
+        }
+        
+        .codet {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: flex-start;
+        }
+        
+        .conflex {
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+        
+        .icoon {
+            font-size: 1.8em;
+            color: #fff;
+            margin: 0px 5px;
+        }
+        
+        .cotexxt {
+            color: #fff;
+            font-size: 1.8em;
+        }
+        
+        .bodet {
+            flex-grow: 0;
+            flex-shrink: 0;
+            border: 5px solid white;
+            margin: 15px;
+            width: 450px;
+            border-radius: 50px;
+        }
+        
+        a[href^=tel] {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        @media screen and (max-width: 550px) {
+            .cotit {
+                font-size: 3em;
+            }
+            .conflex {
+                margin: 10px;
+            }
+            .icoon {
+                font-size: 25px;
+            }
+            .cotexxt {
+                font-size: 25px;
+            }
+            .bodet {
+                border: 3.5px solid white;
+                margin: 6px 0px;
+                width: 415px;
+                border-radius: 35px;
+            }
+        }
+        
+        @media screen and (max-width: 450px) {
+            .cotit {
+                font-size: 2.5em;
+            }
+            .conflex {
+                margin: 6px;
+            }
+            .icoon {
+                font-size: 20px;
+            }
+            .cotexxt {
+                font-size: 20px;
+            }
+            .bodet {
+                border: 3.5px solid white;
+                margin: 5px 0px;
+                width: 315px;
+                border-radius: 30px;
+            }
+        }
+        
+        @media screen and (max-width: 350px) {
+            .cotit {
+                font-size: 2.25em;
+            }
+            .conflex {
+                margin: 4px;
+            }
+            .icoon {
+                font-size: 14px;
+            }
+            .cotexxt {
+                font-size: 14px;
+            }
+            .bodet {
+                border: 3.5px solid white;
+                margin: 5px 0px;
+                width: 225px;
+                border-radius: 25px;
+            }
+        }
+        
+        @media screen and (max-width: 250px) {
+            .cotit {
+                font-size: 2em;
+            }
+            .conflex {
+                margin: 2px;
+            }
+            .icoon {
+                font-size: 10px;
+            }
+            .cotexxt {
+                font-size: 10px;
+            }
+            .bodet {
+                border: 3.5px solid white;
+                margin: 5px 0px;
+                width: 150px;
+                border-radius: 25px;
+            }
+        }
+    </style>
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        /* Close when someone clicks on the "x" symbol inside the overlay */
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+        /*code of accordin in art gallery*/
+        var optart = 0;
+
+        function ope() {
+            if (!optart) {
+                document.getElementById("artnav").style.display = "block";
+                optart = 1;
+            } else {
+                document.getElementById("artnav").style.display = "none";
+                optart = 0;
+            }
+        }
+
+
+        var i = 1;
+        var tim = setInterval(chek, 3000);
+
+        function chek() {
+            switch (i) {
+                case 1:
+                    document.getElementById('slideshow-container').style.backgroundImage = "url('images/2.jpg')";
+                    i = 2;
+                    break;
+                case 2:
+                    document.getElementById('slideshow-container').style.backgroundImage = "url('images/3.jpg')";
+                    i = 3;
+                    break;
+                case 3:
+                    document.getElementById('slideshow-container').style.backgroundImage = "url('images/4.jpg')";
+                    i = 4;
+                    break;
+                case 4:
+                    document.getElementById('slideshow-container').style.backgroundImage = "url('images/5.jpg')";
+                    i = 5;
+                    break;
+                case 5:
+                    document.getElementById('slideshow-container').style.backgroundImage = "url('images/1.jpg')";
+                    i = 1;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function minusSlides() {
+            switch (i) {
+                case 1:
+                    i = 4;
+                    break;
+                case 2:
+                    i = 5;
+                    break;
+                case 3:
+                    i = 1;
+                    break;
+                case 4:
+                    i = 2;
+                    break;
+                case 5:
+                    i = 3;
+                    break;
+                default:
+                    break;
+            }
+            var ze = chek();
+        }
+    </script>
+
+
+    <script src="https://kit.fontawesome.com/b8be333c62.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <nav id="tnav">
+        <div class="topnav" id="myTopnav">
+            <a class="navlogobar" href="javascript:void(0);"><img class="navlogo" src="logo_cut.png" alt=""></a>
+
+            <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a class="tlink" href="../about_us/index.html">About us</a>
+            <a class="tlink" href="../gallery/index.html">Art Gallery</a>
+            <a class="tlink" href="../course/index.html">Course</a>
+            <a class="tlink" href="../index.html">Home</a>
+
+        </div>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <div class="overlay-content">
+                <a href="../index.html">Home</a>
+                <a href="../course/index.html">Course</a>
+                <a href="javascript:void(0)" onclick="ope()">Art Gallery</a>
+                <div id="artnav">
+                    <a href="../gallery/art.html">Art</a>
+                    <a href="../gallery/craft.html">Craft</a>
+                    <a href="../gallery/exhibition.html">Exhibition</a>
+                </div>
+                <a href="../about_us/index.html">About us</a>
+            </div>
+
+        </div>
+
+
+    </nav>
+
+    <main>
+        <div id="slideshow-container">
+            <a class="prev" onclick="minusSlides()">&#10094;</a>
+            <a class="next" onclick="chek()">&#10095;</a>
+        </div>
+        <br><br>
+        <div>
+            <h1 class="centext titsho">Artistic Flair</h1>
+            <div class="artshow">
+                <div class="card a1"><img class="lanimg ishad" src="images/c1.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Stencil Painting</h1>
+                    </div>
+                </div>
+                <div class="card a2"><img class="porimg ishad" src="images/c2.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Pencil Painting</h1>
+                    </div>
+                </div>
+                <div class="card a3"><img class="porimg ishad" src="images/c3.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Thermocol Painting</h1>
+                    </div>
+                </div>
+                <div class="card a4"><img class="porimg ishad" src="images/c4.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Thread Painting</h1>
+                    </div>
+                </div>
+                <div class="card a5"><img class="porimg ishad" src="images/c5.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Thumb Painting</h1>
+                    </div>
+                </div>
+                <div class="card a6"><img class="porimg ishad" src="images/c6.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Abstract Painting</h1>
+                    </div>
+                </div>
+                <div class="card a7"><img class="porimg ishad" src="images/c7.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Greeting Card</h1>
+                    </div>
+                </div>
+                <div class="card a8"><img class="porimg ishad" src="images/c8.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Dancing Penguin</h1>
+                    </div>
+                </div>
+                <div class="card a9"><img class="porimg ishad" src="images/c9.png" alt="">
+                    <div>
+                        <h1 class="attex">Magic Hat</h1>
+                    </div>
+                </div>
+                <div class="card a10"><img class="lanimg ishad" src="images/c10.jpg" alt="">
+                    <div>
+                        <h1 class="attex">Emoji Watch</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h1 class="centext titsho">Price Details</h1>
+        <div class="brat">
+            <div class="prbox ofrab">
+                <div class="ofratit">
+                    <h1>OFFLINE</h1>
+                    <hr class="oflin">
+                </div>
+                <div class="ofnmat">
+                    <p class="tepad">One day workshop (3 hours)</p>
+                    <p class="tepad">Free kit (by hand)</p>
+                    <p class="tepad">Sunday 10:00a.m to 1:00p.m</p>
+                    <p class="tepad">10 items (painting & paper craft)</p>
+                </div>
+                <div class="ofnrta">
+                    <h1>Rs 500/-</h1>
+                    <p><a href="#cotn" class="button">Book Now</a></p>
+                </div>
+            </div>
+            <div class="prbox onrab">
+                <div class="onratit">
+                    <h1>ONLINE</h1>
+                    <hr class="onlin">
+                </div>
+                <div class="ofnmat">
+
+                    <p class="tepad">One week workshop (daily 45mins)</p>
+                    <p class="tepad">Free kit (by post)</p>
+                    <p class="tepad">Everyday 6:00p.m to 7:00p.m</p>
+                    <p class="tepad">10 items (painting & paper craft)</p>
+                </div>
+                <div class="ofnrta">
+                    <h1>Rs 500/-</h1>
+                    <p><a href="#cotn" class="button">Book Now</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hii">
+            <div class="ard af1" style="background-color: black; border-radius: 10px;">
+                <div><br>
+                    <h1 style="color: aliceblue;">KIT</h1>
+                </div>
+                <img class="kporimg" src="images/kit.png" alt="">
+                <p style="color: aliceblue;">(16 items)</p>
+            </div>
+            <div class="ard a2">
+                <img class="kporimg" src="images/m1.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Rangeela colours</h1>
+                </div>
+            </div>
+            <div class="ard a3">
+                <img class="klanimg" src="images/m2.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Crayons</h1>
+                </div>
+            </div>
+            <div class="ard a4">
+                <img class="klanimg" src="images/m3.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Colour palette</h1>
+                </div>
+            </div>
+            <div class="ard  a5">
+                <img class="kporimg" src="images/m4.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Drawing Book</h1>
+                </div>
+            </div>
+            <div class="ard  a6">
+                <img class="kporimg" src="images/m5.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Fevicol</h1>
+                </div>
+            </div>
+            <div class="ard  a7">
+                <img class="kporimg" src="images/m6.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">4B Pencil</h1>
+                </div>
+            </div>
+            <div class="ard  a8">
+                <img class="kporimg" src="images/m7.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Scissors</h1>
+                </div>
+            </div>
+            <div class="ard  a9">
+                <img class="klanimg" src="images/m8.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Cutter</h1>
+                </div>
+            </div>
+            <div class="ard  a10">
+                <img class="klanimg" src="images/m9.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Paper cups</h1>
+                </div>
+            </div>
+            <div class="ard  a1">
+                <img class="klanimg" src="images/m10.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Colour papers</h1>
+                </div>
+            </div>
+            <div class="ard  a6">
+
+                <img class="kporimg" src="images/m11.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Paint brush</h1>
+                </div>
+            </div>
+            <div class="ard  a7">
+                <img class="kporimg" src="images/m12.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Black Pen</h1>
+                </div>
+            </div>
+            <div class="ard  a8">
+                <img class="klanimg" src="images/m13.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Paper Stencil Desings
+                    </h1>
+                </div>
+            </div>
+            <div class="ard  a9">
+                <img class="kporimg" src="images/m14.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Piece of thermocol</h1>
+                </div>
+            </div>
+            <div class="ard  a10">
+                <img class="kporimg" src="images/m15.jpg" alt="">
+                <div>
+                    <h1 style="text-align: center;">Peice of string</h1>
+                </div>
+            </div>
+            <div class="ard  ll10">
+                <img class="klanimg" src="images/m16.jpg" alt="">
+                <div>
+                    <h1>Tissue paper</h1>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div id="bgload2"></div>
+        <div id="bgload3"></div>
+        <div id="bgload4"></div>
+        <div id="bgload5"></div>
+    </main>
+    <!--page 5-->
+    <div id="cotn" class="cont">
+        <h1 class="cotit">Contact</h1>
+        <div class="codet">
+            <div class="bodet">
+                <div class="conflex"><span class="icoon"><i class='fas'>&#xf879;</i></span>
+                    <p class="cotexxt">+91 9951008440</p>
+                </div>
+            </div>
+            <div class="bodet">
+                <div class="conflex"><span class="icoon"><i class='fas'>&#xf0e0;</i></span>
+                    <p class="cotexxt">hydartsacademy@gmail.com</p>
+                </div>
+            </div>
+            <div class="bodet">
+                <div class="conflex"><span class="icoon"><i class='fas'>&#xf3c5;</i></span>
+                    <p class="cotexxt">Chintal, Balanagar, Hyd</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
