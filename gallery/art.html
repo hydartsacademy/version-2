@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  height=device-height, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <link rel="icon" href="logo_cut.png">
+
+    <meta name="description" content="gallery of HAA. contains images of Art created by HAA">
+    <meta name="keywords" content="Hyderabad, Arts, Academy, Hyd, Arts Academy,Art Gallery page">
+    <meta name="author" content="We thinc solutions">
+    <meta name="author" content="Ravula Pranay Kumar Reddy">
+    <meta name="author" content="Bokka Varun Reddy">
+    <meta name="author" content="Bokka Nirvan Reddy">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            font-family: calibri;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        nav {
+            background-image: linear-gradient(rgb(255, 255, 255), rgba(230, 230, 230, 0.8));
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            z-index: 101;
+            font-family: calibri;
+        }
+        
+        .topnav {
+            padding: 0px 18px;
+            background-color: transparent;
+            overflow: hidden;
+            height: 9vh;
+            width: 100vw;
+            color: #000;
+        }
+        
+        .topnav .tlink {
+            float: right;
+            display: block;
+            color: inherit;
+            text-align: center;
+            padding: 1vh 3vh 1vh 0px;
+            text-decoration: none;
+            font-size: 5vh;
+        }
+        
+        .navlogobar {
+            float: left;
+            display: block;
+            text-align: center;
+        }
+        
+        .navlogo {
+            padding: 1vh 1vh;
+            height: 9vh;
+        }
+        
+        .topnav .icon {
+            color: inherit;
+            float: right;
+            display: none;
+            font-size: 6vh;
+            padding: 2vh;
+        }
+        
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: inherit;
+        }
+        
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            padding-top: 1vh;
+            transition: 0.5s;
+        }
+        
+        .overlay-content {
+            padding-top: 50px;
+            position: relative;
+            top: 10vh;
+            width: 100%;
+            padding-left: 7.5%;
+        }
+        
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 4vh;
+            color: #e0e0e0;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .overlay a:hover {
+            color: #fff;
+        }
+        
+        .overlay .closebtn {
+            margin: 9px;
+            position: absolute;
+            top: 3vh;
+            right: 3vh;
+            font-size: 50px;
+            line-height: 50px;
+        }
+        
+        #artnav {
+            margin: 0px;
+            display: none;
+            padding-left: 25px;
+        }
+        
+        @media screen and (orientation: portrait) {
+            .topnav {
+                padding: 0px 12px;
+                height: 7.5vh;
+            }
+            .topnav .tlink {
+                padding: 1.25vh 1.5vh;
+                font-size: 4.5vh;
+            }
+            .navlogo {
+                padding: 1vh 1vh;
+                height: 7vh;
+            }
+            .topnav .icon {
+                font-size: 4vh;
+                padding: 1.5vh;
+            }
+            .overlay {
+                padding-top: 1vh;
+                transition: 0.5s;
+            }
+            .overlay-content {
+                position: relative;
+                top: 12vh;
+                width: 100%;
+                padding-left: 7.5%;
+            }
+            .overlay a {
+                text-decoration: none;
+                font-size: 4vh;
+                color: #e0e0e0;
+                display: block;
+                transition: 0.3s;
+            }
+            .overlay a:hover {
+                color: #fff;
+            }
+            .overlay .closebtn {
+                position: absolute;
+                top: 6vh;
+                right: 3vh;
+                font-size: 50px;
+            }
+            #artnav {
+                margin: 0px;
+                display: none;
+                padding-left: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 900px),
+        (orientation: portrait) {
+            .topnav {
+                padding: 0px 8px;
+            }
+            .topnav a:not(:first-child) {
+                display: none;
+            }
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+        }
+        
+        #fir1 {
+            padding-top: 10vh;
+        }
+        
+        .centext {
+            text-align: center;
+        }
+        
+        .titsho {
+            font-size: 8vh;
+        }
+        
+        .artshow {
+            width: 100vw;
+            height: auto;
+            display: flex;
+            padding: 0 5vw;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+        
+        .card {
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            padding: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ishad {
+            box-shadow: 0px 0px 10px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .ishad:hover {
+            box-shadow: 0px 0px 12px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .porimg {
+            height: 100%
+        }
+        
+        .lanimg {
+            width: 100%
+        }
+        
+        .seemore {
+            padding: 5%;
+            text-decoration: none;
+            font-size: 5vh;
+        }
+        
+        @media screen and (max-width:400px) {
+            .card {
+                width: 65vw;
+                height: 65vw;
+            }
+        }
+        
+        @media screen and (max-height:400px) {
+            .card {
+                width: 65vh;
+                height: 65vh;
+            }
+        }
+        
+        .cont {
+            width: 100vw;
+            height: auto;
+            padding: 2vh 4vw;
+            background-color: black;
+        }
+        
+        .cotit {
+            font-size: 3em;
+            text-align: center;
+            color: white;
+        }
+        
+        .codet {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: flex-start;
+        }
+        
+        .conflex {
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+        
+        .icoon {
+            font-size: 1.8em;
+            color: #fff;
+            margin: 0px 5px;
+        }
+        
+        .cotexxt {
+            color: #fff;
+            font-size: 1.8em;
+        }
+        
+        .bodet {
+            flex-grow: 0;
+            flex-shrink: 0;
+            border: 5px solid white;
+            margin: 15px;
+            width: 450px;
+            border-radius: 50px;
+        }
+        
+        a[href^=tel] {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        @media screen and (max-width: 550px) {
+            .cotit {
+                font-size: 3em;
+            }
+            .conflex {
+                margin: 10px;
+            }
+            .icoon {
+                font-size: 25px;
+            }
+            .cotexxt {
+                font-size: 25px;
+            }
+            .bodet {
+                border: 3.5px solid white;
+                margin: 6px 0px;
+                width: 415px;
+                border-radius: 35px;
+            }
+        }
+        
+        @media screen and (max-width: 450px) {
+            .cotit {
+                font-size: 2.5em;
+            }
+            .conflex {
+                margin: 6px;
+            }
+            .icoon {
+                font-size: 20px;
+            }
+            .cotexxt {
+                font-size: 20px;
+            }
+            .bodet {
+                border: 3.5px solid white;
+                margin: 5px 0px;
+                width: 315px;
+                border-radius: 30px;
+            }
+        }
+        
+        @media screen and (max-width: 350px) {
+            .cotit {
+                font-size: 2.25em;
+            }
+            .conflex {
+                margin: 4px;
+            }
+            .icoon {
+                font-size: 14px;
+            }
+            .cotexxt {
+                font-size: 14px;
+            }
+            .bodet {
+                border: 3.5px solid white;
+                margin: 5px 0px;
+                width: 225px;
+                border-radius: 25px;
+            }
+        }
+        
+        @media screen and (max-width: 250px) {
+            .cotit {
+                font-size: 2em;
+            }
+            .conflex {
+                margin: 2px;
+            }
+            .icoon {
+                font-size: 10px;
+            }
+            .cotexxt {
+                font-size: 10px;
+            }
+            .bodet {
+                border: 3.5px solid white;
+                margin: 5px 0px;
+                width: 150px;
+                border-radius: 25px;
+            }
+        }
+    </style>
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        /* Close when someone clicks on the "x" symbol inside the overlay */
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+        /*code of accordin in art gallery*/
+        var optart = 0;
+
+        function ope() {
+            if (!optart) {
+                document.getElementById("artnav").style.display = "block";
+                optart = 1;
+            } else {
+                document.getElementById("artnav").style.display = "none";
+                optart = 0;
+            }
+        }
+    </script>
+
+    <script src="https://kit.fontawesome.com/b8be333c62.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav id="tnav">
+        <div class="topnav" id="myTopnav">
+            <a class="navlogobar" href="javascript:void(0);"><img class="navlogo" src="logo_cut.png" alt=""></a>
+
+            <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a class="tlink" href="../about_us/index.html">About us</a>
+            <a class="tlink" href="../gallery/index.html">Art Gallery</a>
+            <a class="tlink" href="../course/index.html">Course</a>
+            <a class="tlink" href="../index.html">Home</a>
+
+        </div>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <div class="overlay-content">
+                <a href="../index.html">Home</a>
+                <a href="../course/index.html">Course</a>
+                <a href="javascript:void(0)" onclick="ope()">Art Gallery</a>
+                <div id="artnav">
+                    <a href="../gallery/art.html">Art</a>
+                    <a href="../gallery/craft.html">Craft</a>
+                    <a href="../gallery/exhibition.html">Exhibition</a>
+                </div>
+                <a href="../about_us/index.html">About us</a>
+            </div>
+
+        </div>
+
+
+    </nav>
+    <!--gallery model-->
+    <main id="fir1">
+        <div class="art-page">
+            <h1 class="centext titsho">Art</h1>
+            <div class="artshow">
+                <div class="card a1"><img class="porimg ishad" src="art/1.jpg" alt=""></div>
+                <div class="card a2"><img class="porimg ishad" src="art/2.jpg" alt=""></div>
+                <div class="card a3"><img class="porimg ishad" src="art/3.jpg" alt=""></div>
+                <div class="card a4"><img class="lanimg ishad" src="art/4.jpg" alt=""></div>
+                <div class="card a5"><img class="porimg ishad" src="art/5.jpg" alt=""></div>
+                <div class="card a6"><img class="lanimg ishad" src="art/6.jpg" alt=""></div>
+                <div class="card a7"><img class="porimg ishad" src="art/7.jpg" alt=""></div>
+                <div class="card a8"><img class="lanimg ishad" src="art/8.jpg" alt=""></div>
+                <div class="card a9"><img class="porimg ishad" src="art/9.jpg" alt=""></div>
+                <div class="card a10"><img class="porimg ishad" src="art/10.jpg" alt=""></div>
+                <div class="card a11"><img class="lanimg ishad" src="art/11.jpg" alt=""></div>
+                <div class="card a12"><img class="porimg ishad" src="art/12.jpg" alt=""></div>
+                <div class="card a13"><img class="lanimg ishad" src="art/13.jpg" alt=""></div>
+                <div class="card a14"><img class="porimg ishad" src="art/14.jpg" alt=""></div>
+                <div class="card a15"><img class="lanimg ishad" src="art/15.jpg" alt=""></div>
+            </div>
+
+        </div>
+        <br><br><br>
+        <!--page 5-->
+        <div class="cont">
+            <h1 class="cotit">Contact</h1>
+            <div class="codet">
+                <div class="bodet">
+                    <div class="conflex"><span class="icoon"><i class='fas'>&#xf879;</i></span>
+                        <p class="cotexxt">+91 9951008440</p>
+                    </div>
+                </div>
+                <div class="bodet">
+                    <div class="conflex"><span class="icoon"><i class='fas'>&#xf0e0;</i></span>
+                        <p class="cotexxt">hydartsacademy@gmail.com</p>
+                    </div>
+                </div>
+                <div class="bodet">
+                    <div class="conflex"><span class="icoon"><i class='fas'>&#xf3c5;</i></span>
+                        <p class="cotexxt">Chintal, Balanagar, Hyd</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
